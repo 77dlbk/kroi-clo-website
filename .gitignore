@@ -1,0 +1,16 @@
+# Environment variables
+.env
+.env.local
+
+# Dependencies
+node_modules/
+
+# Production builds
+dist/
+build/
+.next/
+
+# IDE and local system files
+.tempmediaStorage/
+*.log
+.gemini/
