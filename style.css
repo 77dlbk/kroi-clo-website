@@ -499,7 +499,7 @@ body.site-loaded .hero-content {
 }
 
 .marquee-content span::after {
-  content: 'вЂў';
+  content: '•';
   margin-left: 4rem;
 }
 
