@@ -707,6 +707,43 @@
     </div>
   </footer>
 
+  <!-- Catalog Detail Modal -->
+  <div class="catalog-modal" id="catalog-modal">
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal-container">
+      <button class="modal-close" id="modal-close" aria-label="Закрыть">&times;</button>
+      <div class="modal-content">
+        <div class="modal-gallery">
+          <div class="modal-main-view">
+            <img src="" alt="Детальный просмотр" id="modal-main-img">
+          </div>
+          <div class="modal-thumbnails" id="modal-thumbnails">
+            <!-- Thumbnails will be generated dynamically via JS -->
+          </div>
+        </div>
+        <div class="modal-info">
+          <h3 class="modal-title" id="modal-title">Название модели</h3>
+          <div class="modal-meta">
+            <span class="modal-meta-label">Категория:</span>
+            <span class="modal-meta-value" id="modal-category">Женская одежда</span>
+          </div>
+          <div class="modal-meta">
+            <span class="modal-meta-label">Материал:</span>
+            <span class="modal-meta-value" id="modal-fabrics">Кашемир, шерсть</span>
+          </div>
+          <p class="modal-desc" id="modal-desc">
+            Детальное описание пошива и преимуществ модели.
+          </p>
+          <div class="modal-action">
+            <button class="btn" id="modal-cta-btn">
+              Заказать пошив <span class="btn-arrow">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Main Scripts -->
   <script src="app.js"></script>
 </body>

@@ -396,5 +396,157 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     });
+
+    // 5. Catalog Detail Modal Logic
+    const catalogModal = document.getElementById('catalog-modal');
+    const modalClose = document.getElementById('modal-close');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalMainImg = document.getElementById('modal-main-img');
+    const modalThumbnails = document.getElementById('modal-thumbnails');
+    const modalTitle = document.getElementById('modal-title');
+    const modalCategory = document.getElementById('modal-category');
+    const modalFabrics = document.getElementById('modal-fabrics');
+    const modalDesc = document.getElementById('modal-desc');
+
+    const catalogDetailsData = {
+      0: { // Card 1: Asymmetric jacket (Index 0)
+        title: "Укороченное пальто-жакет",
+        category: "Верхняя одежда / Пальто",
+        fabrics: "Натуральная шерсть, кашемир",
+        desc: "Элегантное укороченное пальто асимметричного кроя с воротником-стойкой и крупной декоративной пуговицей. Идеально держит форму, подчеркивает силуэт и обеспечивает комфорт в прохладную погоду.",
+        images: [
+          "assets/details/catalog-1-1.jpg",
+          "assets/details/catalog-1-2.jpg",
+          "assets/details/catalog-1-3.jpg"
+        ]
+      },
+      1: { // Card 2: Plaid trouser suit (Index 1)
+        title: "Брючный костюм в клетку",
+        category: "Костюмная группа / Жакеты",
+        fabrics: "Премиальная шерсть, вискоза, шелк",
+        desc: "Стильный классический женский костюм-двойка из плотной клетчатой ткани. Приталенный жакет с изысканной золотистой фурнитурой и прямые классические брюки со стрелками. Идеальный крой и безупречная обработка швов.",
+        images: [
+          "assets/details/catalog-2-1.jpg",
+          "assets/details/catalog-2-2.jpg"
+        ]
+      }
+    };
+
+    // Text data helper for other cards (Index 2 to 9)
+    const cardNamesAndSpecs = [
+      { title: "Двубортный тренч", cat: "Плащевая группа", fabric: "Хлопок, полиэстер с пропиткой", d: "Классический двубортный тренчкот с поясом и патами. Плотная влагозащитная ткань премиум-класса с водоотталкивающим покрытием." },
+      { title: "Классическое черное пальто", cat: "Верхняя одежда / Пальто", fabric: "100% шерсть премиум", d: "Длинное шерстяное пальто прямого силуэта на подкладке. Идеальные лекала, обеспечивающие строгую форму плеч и лацканов." },
+      { title: "Укороченный пуховик", cat: "Верхняя одежда / Куртки", fabric: "Влагозащитный нейлон, утиный пух", d: "Легкий и теплозащитный укороченный пуховик свободного кроя. Качественная фурнитура и прочные ветрозащитные швы." },
+      { title: "Костюм с отделкой мехом", cat: "Костюмная группа / Люкс", fabric: "Шерсть, натуральный мех", d: "Эксклюзивный костюм приталенного силуэта с меховой отделкой. Идеальный крой, ручная обработка деталей и благородные ткани." },
+      { title: "Классическое алое пальто", cat: "Верхняя одежда / Пальто", fabric: "Шерсть, альпака", d: "Яркое алое пальто классического двубортного кроя. Износостойкий и мягкий материал высочайшего качества с шелковистым блеском." },
+      { title: "Анималистичный жакет", cat: "Костюмная группа", fabric: "Жаккард, вискоза", d: "Жакет с выразительным леопардовым принтом. Прорезные карманы, идеальная посадка по фигуре и премиальная фурнитура." },
+      { title: "Двубортное мини-пальто", cat: "Верхняя одежда / Пальто", fabric: "Твид, шерсть", d: "Укороченное двубортное пальто из фактурного твида. Классический английский воротник, декоративные пуговицы и удобный крой." },
+      { title: "Твидовый жилет и брюки", cat: "Костюмная группа / Твид", fabric: "Премиум твид", d: "Элегантный комплект из приталенного жилета на пуговицах и классических брюк. Благородная текстура ткани и утонченный стиль." }
+    ];
+
+    function openCardModal(idx) {
+      if (!catalogModal) return;
+      
+      let data = catalogDetailsData[idx];
+      if (!data) {
+        const fallbackInfo = cardNamesAndSpecs[idx - 2] || {
+          title: `Модель Коллаборации №${idx + 1}`,
+          cat: "Дизайнерская одежда",
+          fabric: "Смесовая ткань премиум",
+          d: "Премиальное швейное изделие полного цикла. Разработка лекал, идеальная посадка по фигуре и обработка швов по стандартам люкс-сегмента."
+        };
+        
+        data = {
+          title: fallbackInfo.title,
+          category: fallbackInfo.cat,
+          fabrics: fallbackInfo.fabric,
+          desc: fallbackInfo.d,
+          images: [`assets/catalog-${idx + 1}.jpg`]
+        };
+      }
+
+      // Populate text
+      modalTitle.textContent = data.title;
+      modalCategory.textContent = data.category;
+      modalFabrics.textContent = data.fabrics;
+      modalDesc.textContent = data.desc;
+
+      // Set main view image
+      modalMainImg.src = data.images[0];
+      modalMainImg.alt = data.title;
+
+      // Generate thumbnails dynamically
+      modalThumbnails.innerHTML = '';
+      if (data.images.length > 1) {
+        data.images.forEach((imgUrl, tIdx) => {
+          const thumb = document.createElement('div');
+          thumb.classList.add('modal-thumb');
+          if (tIdx === 0) thumb.classList.add('active');
+          
+          const thumbImg = document.createElement('img');
+          thumbImg.src = imgUrl;
+          thumbImg.alt = `${data.title} - превью ${tIdx + 1}`;
+          thumb.appendChild(thumbImg);
+
+          thumb.addEventListener('click', () => {
+            modalMainImg.src = imgUrl;
+            document.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+          });
+
+          modalThumbnails.appendChild(thumb);
+        });
+        modalThumbnails.style.display = 'flex';
+      } else {
+        modalThumbnails.style.display = 'none';
+      }
+
+      // Show modal
+      catalogModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCardModal() {
+      if (!catalogModal) return;
+      catalogModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Bind card clicks
+    cards.forEach((card, idx) => {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => {
+        openCardModal(idx);
+      });
+    });
+
+    if (modalClose) modalClose.addEventListener('click', closeCardModal);
+    if (modalOverlay) modalOverlay.addEventListener('click', closeCardModal);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeCardModal();
+      }
+    });
+
+    // Modal CTA (Order sewing) button
+    const modalCtaBtn = document.getElementById('modal-cta-btn');
+    if (modalCtaBtn) {
+      modalCtaBtn.addEventListener('click', () => {
+        closeCardModal();
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+          setTimeout(() => {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+            const typeInput = document.getElementById('client-type');
+            if (typeInput) {
+              typeInput.value = modalTitle.textContent;
+              typeInput.focus();
+              typeInput.placeholder = "";
+            }
+          }, 450);
+        }
+      });
+    }
   }
 });
