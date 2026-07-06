@@ -467,14 +467,21 @@ document.addEventListener('DOMContentLoaded', () => {
         category: "Костюмная группа / Люкс",
         fabrics: "Шерсть, натуральный мех",
         desc: "Эксклюзивный костюм приталенного силуэта с меховой отделкой. Идеальный крой, ручная обработка деталей и благородные ткани.",
-        images: ["assets/catalog-6.jpg"]
+        images: [
+          "assets/details/catalog-6-1.jpg",
+          "assets/details/catalog-6-2.jpg",
+          "assets/details/catalog-6-3.jpg"
+        ]
       },
       { // Card 7 (Index 6)
         title: "Анималистичный жакет",
         category: "Костюмная группа",
         fabrics: "Жаккард, вискоза",
         desc: "Жакет с выразительным леопардовым принтом. Прорезные карманы, идеальная посадка по фигуре и премиальная фурнитура.",
-        images: ["assets/catalog-8.jpg"]
+        images: [
+          "assets/details/catalog-7-1.jpg",
+          "assets/details/catalog-7-2.jpg"
+        ]
       },
       { // Card 8 (Index 7)
         title: "Двубортное mini-пальто",
