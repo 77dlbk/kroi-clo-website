@@ -499,7 +499,12 @@ document.addEventListener('DOMContentLoaded', () => {
         category: "Костюмная группа / Твид",
         fabrics: "Премиум твид",
         desc: "Элегантный комплект из приталенного жилета на пуговицах и классических брюк. Благородная текстура ткани и утонченный стиль.",
-        images: ["assets/catalog-10.jpg"]
+        images: [
+          "assets/details/catalog-9-1.jpg",
+          "assets/details/catalog-9-2.jpg",
+          "assets/details/catalog-9-3.jpg",
+          "assets/details/catalog-9-4.jpg"
+        ]
       }
     ];
 
