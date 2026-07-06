@@ -1372,9 +1372,25 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .catalog-nav-btn.prev-btn-side,
+  .catalog-nav-btn.prev-btn-side {
+    display: flex !important;
+    left: 0.5rem;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(4px);
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
   .catalog-nav-btn.next-btn-side {
-    display: none; /* Hide side arrows on mobile (rely on swipe/dots) */
+    display: flex !important;
+    right: 0.5rem;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(4px);
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 }
 
@@ -1399,8 +1415,8 @@ footer {
   display: flex;
   gap: 3rem;
   width: max-content;
-  /* Centering padding for first and last slides */
-  padding: 1rem calc(50vw - var(--card-width) / 2);
+  /* Centering padding for first and last slides, compensating for 2rem viewport padding */
+  padding: 1rem calc(50vw - var(--card-width) / 2 - 2rem);
   will-change: transform;
 }
 
