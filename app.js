@@ -446,14 +446,21 @@ document.addEventListener('DOMContentLoaded', () => {
         category: "Верхняя одежда / Пальто",
         fabrics: "Пальтовое сукно, вискозный шелк",
         desc: "Яркое пальто насыщенного алого оттенка приталенного кроя. Износостойкий материал премиум-качества, строгая линия плеч и безукоризненная посадка по фигуре.",
-        images: ["assets/catalog-4.jpg"]
+        images: [
+          "assets/details/catalog-4-1.jpg",
+          "assets/details/catalog-4-2.jpg",
+          "assets/details/catalog-4-3.jpg"
+        ]
       },
       { // Card 5 (Index 4)
         title: "Костюм из серого шеврона",
         category: "Костюмная группа",
         fabrics: "Шерстяной шеврон, шелковая подкладка",
         desc: "Премиальный женский костюм из твида с шевроновым плетением. Идеальный крой, обеспечивающий строгий деловой силуэт, в сочетании с мягкостью натуральной ткани.",
-        images: ["assets/catalog-5.jpg"]
+        images: [
+          "assets/details/catalog-5-1.jpg",
+          "assets/details/catalog-5-2.jpg"
+        ]
       },
       { // Card 6 (Index 5)
         title: "Костюм с отделкой мехом",
