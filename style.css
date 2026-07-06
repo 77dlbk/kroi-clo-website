@@ -1302,6 +1302,13 @@ footer {
   z-index: 10;
 }
 
+.catalog-nav-dots-bottom {
+  display: flex;
+  justify-content: center;
+  margin-top: -1rem; /* Raises the dots closer to the carousel cards */
+  margin-bottom: 2.5rem;
+}
+
 .catalog-carousel-dots {
   display: flex;
   gap: 0.8rem;
