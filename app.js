@@ -488,7 +488,11 @@ document.addEventListener('DOMContentLoaded', () => {
         category: "Верхняя одежда / Пальто",
         fabrics: "Твид, шерсть",
         desc: "Укороченное двубортное пальто из фактурного твида. Классический английский воротник, декоративные пуговицы и удобный крой.",
-        images: ["assets/catalog-9.jpg"]
+        images: [
+          "assets/details/catalog-8-1.jpg",
+          "assets/details/catalog-8-2.jpg",
+          "assets/details/catalog-8-3.jpg"
+        ]
       },
       { // Card 9 (Index 8)
         title: "Твидовый жилет и брюки",
