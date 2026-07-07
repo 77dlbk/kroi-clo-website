@@ -1,22 +1,23 @@
 /* KROI CLO SEWING FACTORY - STYLE SYSTEM */
 /* Core Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
 
 :root {
   --font-serif: 'Bodoni Moda', serif;
-  --font-sans: 'Bodoni Moda', serif;
+  --font-sans: 'Montserrat', sans-serif;
 
-  /* Strict Black & White Color Palette */
+  /* Warm & Luxurious Color Palette */
   --color-black: #000000;
   --color-white: #ffffff;
-  --color-gray-dark: #121212;
-  --color-gray-mid: #707070;
-  --color-gray-light: #f5f5f5;
-  --color-border-light: rgba(0, 0, 0, 0.1);
+  --color-gray-dark: #1E1C1A; /* warm dark charcoal */
+  --color-gray-mid: #807B77; /* warm mid gray */
+  --color-gray-light: #FAF8F5; /* warm alabaster/linen white */
+  --color-border-light: rgba(30, 28, 26, 0.1);
   --color-border-dark: rgba(255, 255, 255, 0.15);
   
-  /* Audi Nardo Gray */
-  --color-nardo-gray: #686A6C;
+  /* Premium Warm Gray (Replaces cool Nardo Gray) */
+  --color-nardo-gray: #938E8A;
 
   /* Transitions */
   --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -193,6 +194,7 @@ header {
 }
 
 .nav-links a {
+  font-family: var(--font-serif);
   font-size: 0.8rem;
   font-weight: 400;
   letter-spacing: 0.15em;
@@ -227,6 +229,7 @@ header {
 }
 
 .nav-phone {
+  font-family: var(--font-serif);
   font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 0.05em;
@@ -361,37 +364,37 @@ body.site-loaded .hero-content {
 .hero-overlay-text {
   position: absolute;
   top: 50%;
-  left: 0;
-  width: 100%;
+  left: 8%;
   transform: translateY(-50%);
   z-index: 20;
-  text-align: center;
   pointer-events: none;
-  padding: 0 2rem;
   color: var(--color-black);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  max-width: 500px;
+  padding: 0;
 }
 
 .hero-overlay-text .hero-eyebrow {
-  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+  font-family: var(--font-sans);
+  font-size: clamp(0.8rem, 1.3vw, 1rem);
   text-transform: uppercase;
   letter-spacing: 0.3em;
   color: var(--color-black);
   display: inline-block;
-  margin-bottom: 1rem;
-  text-align: center;
+  margin-bottom: 1.5rem;
+  text-align: left;
 }
 
-/* Hero Logo on the cover background */
+/* Hero Logo on the cover background - Made Larger and Left Aligned */
 .hero-logo-wrap {
   margin-top: 1.5rem;
-  width: 320px;
-  max-width: 85%;
+  width: 450px;
+  max-width: 90%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -400,6 +403,68 @@ body.site-loaded .hero-content {
   height: auto;
   display: block;
   filter: brightness(0); /* Renders as solid black logo matching the header menu links */
+}
+
+/* Lichi-style Bottom CTA Overlay */
+.hero-bottom-cta {
+  position: absolute;
+  bottom: 3.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  pointer-events: auto;
+  text-align: center;
+}
+
+.hero-cta-title {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  color: var(--color-white);
+  text-transform: uppercase;
+}
+
+.hero-cta-link {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--color-white);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--color-white);
+  padding-bottom: 2px;
+  transition: var(--transition-fast);
+}
+
+.hero-cta-link:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .hero-overlay-text {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    text-align: center;
+    width: 90%;
+    max-width: none;
+    padding: 0 1rem;
+  }
+  .hero-overlay-text .hero-eyebrow {
+    text-align: center;
+  }
+  .hero-logo-wrap {
+    width: 320px;
+    justify-content: center;
+  }
+  .hero-bottom-cta {
+    bottom: 2.5rem;
+  }
 }
 
 .collage-3-item {
