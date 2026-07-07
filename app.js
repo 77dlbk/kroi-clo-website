@@ -147,10 +147,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('header');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-      header.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+      header.style.backgroundColor = 'rgba(255, 255, 255, 0.85)';
+      header.style.backdropFilter = 'blur(10px)';
+      header.style.webkitBackdropFilter = 'blur(10px)';
+      header.style.borderBottom = '1px solid rgba(0, 0, 0, 0.05)';
       header.style.padding = '1rem 2rem';
     } else {
       header.style.backgroundColor = 'transparent';
+      header.style.backdropFilter = 'none';
+      header.style.webkitBackdropFilter = 'none';
+      header.style.borderBottom = 'none';
       header.style.padding = '1.5rem 2rem';
     }
   });

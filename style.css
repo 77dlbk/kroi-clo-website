@@ -159,7 +159,6 @@ header {
   width: 100%;
   padding: 1.5rem 2rem;
   z-index: 1000;
-  mix-blend-mode: difference;
   transition: var(--transition-smooth);
 }
 
@@ -180,7 +179,6 @@ header {
   height: 48px;
   width: auto;
   display: block;
-  filter: brightness(0) invert(1);
   transition: var(--transition-fast);
 }
 
@@ -199,7 +197,7 @@ header {
   font-weight: 400;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--color-white);
+  color: var(--color-black);
   position: relative;
   padding-bottom: 0.3rem;
 }
@@ -211,7 +209,7 @@ header {
   left: 0;
   width: 100%;
   height: 1px;
-  background-color: var(--color-white);
+  background-color: var(--color-black);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -232,7 +230,7 @@ header {
   font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 0.05em;
-  color: var(--color-white);
+  color: var(--color-black);
 }
 
 .burger-menu {
@@ -249,7 +247,7 @@ header {
 .burger-line {
   width: 100%;
   height: 1px;
-  background-color: var(--color-white);
+  background-color: var(--color-black);
   transition: var(--transition-fast);
 }
 
@@ -304,22 +302,17 @@ header {
 
 /* Hero Section & Collage */
 .hero {
-  padding-top: 8rem;
-  padding-bottom: 4rem;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: var(--color-white);
+  height: 100vh;
+  width: 100%;
   position: relative;
+  overflow: hidden;
+  background-color: var(--color-white);
 }
 
 .hero-content {
-  max-width: var(--max-width);
-  margin: 0 auto;
   width: 100%;
-  padding: 0 2rem;
-  display: grid;
+  height: 100%;
+  display: block;
   transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1), opacity 2s ease;
   transform: scale(1.05);
   opacity: 0;
@@ -328,11 +321,6 @@ header {
 body.site-loaded .hero-content {
   transform: scale(1);
   opacity: 1;
-}
-  grid-template-columns: 1fr;
-  gap: 3rem;
-  align-items: center;
-  position: relative;
 }
 
 .hero-text-wrap {
@@ -365,13 +353,8 @@ body.site-loaded .hero-content {
 
 /* 3-Photo Editorial Collage Layout */
 .hero-collage-3 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
   width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
+  height: 100%;
   position: relative;
 }
 
@@ -417,9 +400,8 @@ body.site-loaded .hero-content {
 .collage-3-item {
   position: relative;
   overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03);
-  border: 1px solid var(--color-border-light);
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease, opacity 0.6s ease;
+  width: 100%;
+  height: 100%;
 }
 
 .collage-3-img {
@@ -430,37 +412,9 @@ body.site-loaded .hero-content {
   transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Central photo optimized as single magazine piece */
 .collage-3-center {
-  width: 46%;
-  max-width: 500px;
-  aspect-ratio: 3 / 4;
-  z-index: 2;
-}
-
-/* Title image styling deleted */
-
-/* Hover effects for premium feel */
-.hero-collage-3:hover .collage-3-item {
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.06);
-}
-
-.collage-3-item:hover {
-  transform: scale(1.02) translateY(-5px);
-  opacity: 1;
-  z-index: 3;
-}
-
-.collage-3-item:hover .collage-3-img {
-  transform: scale(1.03);
-}
-
-@media (max-width: 768px) {
-  .collage-3-center {
-    width: 85%;
-    max-width: 380px;
-    aspect-ratio: 3 / 4;
-  }
+  width: 100%;
+  height: 100%;
 }
 
 /* Infinite Marquee */
