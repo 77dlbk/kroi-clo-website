@@ -412,7 +412,7 @@ body.site-loaded .hero-content {
 .collage-3-img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Shows the entire photo completely without any cropping */
+  object-fit: cover; /* Stretches the outpainted widescreen background to cover all screen edges */
   display: block;
   transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
