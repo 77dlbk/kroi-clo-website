@@ -8,14 +8,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function toggleMenu() {
     mobileMenu.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
     
     // Burger animation
     if (mobileMenu.classList.contains('active')) {
-      burgerLines[0].style.transform = 'translateY(6px) rotate(45deg)';
-      burgerLines[1].style.transform = 'translateY(-7px) rotate(-45deg)';
+      burgerLines[0].style.transform = 'translateY(7px) rotate(45deg)';
+      burgerLines[1].style.opacity = '0';
+      burgerLines[2].style.transform = 'translateY(-7px) rotate(-45deg)';
     } else {
       burgerLines[0].style.transform = 'none';
-      burgerLines[1].style.transform = 'none';
+      burgerLines[1].style.opacity = '1';
+      burgerLines[2].style.transform = 'none';
     }
   }
 
@@ -27,8 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
   mobileLinks.forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu.classList.remove('active');
+      document.body.classList.remove('menu-open');
       burgerLines[0].style.transform = 'none';
-      burgerLines[1].style.transform = 'none';
+      burgerLines[1].style.opacity = '1';
+      burgerLines[2].style.transform = 'none';
     });
   });
 
@@ -151,13 +156,13 @@ document.addEventListener('DOMContentLoaded', () => {
       header.style.backdropFilter = 'blur(10px)';
       header.style.webkitBackdropFilter = 'blur(10px)';
       header.style.borderBottom = '1px solid rgba(0, 0, 0, 0.05)';
-      header.style.padding = '1rem 2rem';
+      header.style.padding = '0.7rem 2rem';
     } else {
       header.style.backgroundColor = 'transparent';
       header.style.backdropFilter = 'none';
       header.style.webkitBackdropFilter = 'none';
       header.style.borderBottom = 'none';
-      header.style.padding = '1.5rem 2rem';
+      header.style.padding = '1rem 2rem';
     }
   });
 
@@ -212,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
         notification.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
         
         notification.innerHTML = `
-          <div style="font-family: 'Playfair Display', serif; font-size: 1.2rem; text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.05em;">Заявка принята</div>
+          <div style="font-family: var(--font-serif); font-size: 1.2rem; text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.05em;">Заявка принята</div>
           <div style="font-size: 0.85rem; font-weight: 300; opacity: 0.8;">Мы свяжемся с вами в течение 30 минут.</div>
         `;
         
@@ -408,35 +413,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalClose = document.getElementById('modal-close');
     const modalOverlay = document.getElementById('modal-overlay');
     const modalMainImg = document.getElementById('modal-main-img');
+    const modalMainView = document.querySelector('.modal-main-view');
+    if (modalMainView && modalMainImg) {
+      modalMainView.addEventListener('mousemove', (e) => {
+        const rect = modalMainView.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        modalMainImg.style.transformOrigin = `${x}% ${y}%`;
+        modalMainImg.style.transform = 'scale(2.2)';
+      });
+
+      modalMainView.addEventListener('mouseleave', () => {
+        modalMainImg.style.transformOrigin = 'center center';
+        modalMainImg.style.transform = 'scale(1)';
+      });
+    }
     const modalThumbnails = document.getElementById('modal-thumbnails');
     const modalTitle = document.getElementById('modal-title');
     const modalCategory = document.getElementById('modal-category');
     const modalFabrics = document.getElementById('modal-fabrics');
     const modalDesc = document.getElementById('modal-desc');
-
-    const catalogMetaData = [
-      { // Card 1 (Index 0)
-        title: "Укороченное пальто-жакет",
-        category: "Верхняя одежда / Пальто",
-        fabrics: "Натуральная шерсть, кашемир",
-        desc: "Элегантное укороченное пальто асимметричного кроя с воротником-стойкой и крупной декоративной пуговицей. Идеально держит форму, подчеркивает силуэт и обеспечивает комфорт в прохладную погоду.",
-        images: [
-          "assets/details/catalog-1-1.jpg",
-          "assets/details/catalog-1-2.jpg",
-          "assets/details/catalog-1-3.jpg"
-        ]
-      },
-      { // Card 2 (Index 1)
-        title: "Твидовый костюм в клетку",
-        category: "Костюмная группа / Жакеты",
-        fabrics: "Премиальная шерсть, вискоза, шелк",
-        desc: "Стильный классический женский костюм-двойка из плотной клетчатой ткани. Приталенный жакет с изысканной золотистой фурнитурой и прямые классические брюки со стрелками. Идеальный крой и безупречная обработка швов.",
-        images: [
-          "assets/details/catalog-2-1.jpg",
-          "assets/details/catalog-2-2.jpg"
-        ]
-      },
-      { // Card 3 (Index 2)
+      const catalogMetaData = [
+      { // Card 1
         title: "Жакет и Сатиновая юбка",
         category: "Костюмная группа / Жакеты",
         fabrics: "Премиальная шерсть, натуральный шелк",
@@ -447,28 +445,19 @@ document.addEventListener('DOMContentLoaded', () => {
           "assets/details/catalog-3-3.jpg"
         ]
       },
-      { // Card 4 (Index 3)
-        title: "Пальто алого цвета",
-        category: "Верхняя одежда / Пальто",
-        fabrics: "Пальтовое сукно, вискозный шелк",
-        desc: "Яркое пальто насыщенного алого оттенка приталенного кроя. Износостойкий материал премиум-качества, строгая линия плеч и безукоризненная посадка по фигуре.",
+      { // Card 2
+        title: "Твидовый пиджак и брюки",
+        category: "Костюмная группа / Твид",
+        fabrics: "Премиум твид",
+        desc: "Элегантный комплект из классического пиджака и брюк. Благородная текстура твида, безупречные швы и современный крой, подчеркивающий силуэт.",
         images: [
-          "assets/details/catalog-4-1.jpg",
-          "assets/details/catalog-4-2.jpg",
-          "assets/details/catalog-4-3.jpg"
+          "assets/details/catalog-9-1.jpg",
+          "assets/details/catalog-9-2.jpg",
+          "assets/details/catalog-9-3.jpg",
+          "assets/details/catalog-9-4.jpg"
         ]
       },
-      { // Card 5 (Index 4)
-        title: "Костюм из серого шеврона",
-        category: "Костюмная группа",
-        fabrics: "Шерстяной шеврон, шелковая подкладка",
-        desc: "Премиальный женский костюм из твида с шевроновым плетением. Идеальный крой, обеспечивающий строгий деловой силуэт, в сочетании с мягкостью натуральной ткани.",
-        images: [
-          "assets/details/catalog-5-1.jpg",
-          "assets/details/catalog-5-2.jpg"
-        ]
-      },
-      { // Card 6 (Index 5)
+      { // Card 3
         title: "Костюм с отделкой мехом",
         category: "Костюмная группа / Люкс",
         fabrics: "Шерсть, натуральный мех",
@@ -479,7 +468,17 @@ document.addEventListener('DOMContentLoaded', () => {
           "assets/details/catalog-6-3.jpg"
         ]
       },
-      { // Card 7 (Index 6)
+      { // Card 4
+        title: "Твидовый костюм в клетку",
+        category: "Костюмная группа / Жакеты",
+        fabrics: "Премиальная шерсть, вискоза, шелк",
+        desc: "Стильный классический женский костюм-двойка из плотной клетчатой ткани. Приталенный жакет с изысканной золотистой фурнитурой и прямые классические брюки со стрелками. Идеальный крой и безупречная обработка швов.",
+        images: [
+          "assets/details/catalog-2-1.jpg",
+          "assets/details/catalog-2-2.jpg"
+        ]
+      },
+      { // Card 5
         title: "Анималистичный жакет",
         category: "Костюмная группа",
         fabrics: "Жаккард, вискоза",
@@ -489,27 +488,14 @@ document.addEventListener('DOMContentLoaded', () => {
           "assets/details/catalog-7-2.jpg"
         ]
       },
-      { // Card 8 (Index 7)
-        title: "Двубортное mini-пальто",
-        category: "Верхняя одежда / Пальто",
-        fabrics: "Твид, шерсть",
-        desc: "Укороченное двубортное пальто из фактурного твида. Классический английский воротник, декоративные пуговицы и удобный крой.",
+      { // Card 6
+        title: "Костюм из серого шеврона",
+        category: "Костюмная группа",
+        fabrics: "Шерстяной шеврон, шелковая подкладка",
+        desc: "Премиальный женский костюм из твида с шевроновым плетением. Идеальный крой, обеспечивающий строгий деловой силуэт, в сочетании с мягкостью натуральной ткани.",
         images: [
-          "assets/details/catalog-8-1.jpg",
-          "assets/details/catalog-8-2.jpg",
-          "assets/details/catalog-8-3.jpg"
-        ]
-      },
-      { // Card 9 (Index 8)
-        title: "Твидовый жилет и брюки",
-        category: "Костюмная группа / Твид",
-        fabrics: "Премиум твид",
-        desc: "Элегантный комплект из приталенного жилета на пуговицах и классических брюк. Благородная текстура ткани и утонченный стиль.",
-        images: [
-          "assets/details/catalog-9-1.jpg",
-          "assets/details/catalog-9-2.jpg",
-          "assets/details/catalog-9-3.jpg",
-          "assets/details/catalog-9-4.jpg"
+          "assets/details/catalog-5-1.jpg",
+          "assets/details/catalog-5-2.jpg"
         ]
       }
     ];
@@ -604,4 +590,96 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
+
+  // 9. Catalog Magnifier Lens Tool
+  const cardImgWraps = document.querySelectorAll('.catalog-card-img-wrap');
+  
+  cardImgWraps.forEach(wrap => {
+    const card = wrap.closest('.catalog-card');
+    const img = wrap.querySelector('.catalog-card-img');
+    const zoomBtn = wrap.querySelector('.card-zoom-btn');
+    
+    if (!img || !zoomBtn) return;
+    
+    // Create lens element
+    const lens = document.createElement('div');
+    lens.classList.add('magnifier-lens');
+    wrap.appendChild(lens);
+    
+    let isLensActive = false;
+    
+    zoomBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent opening card detail modal
+      isLensActive = !isLensActive;
+      zoomBtn.classList.toggle('active', isLensActive);
+      card.classList.toggle('lens-mode-active', isLensActive);
+      
+      if (isLensActive) {
+        // Set lens background to card image source
+        lens.style.backgroundImage = `url('${img.src}')`;
+        // We set background size to zoom in (e.g. 2.5x the width and height of the image wrapper)
+        lens.style.backgroundSize = `${wrap.offsetWidth * 2.5}px ${wrap.offsetHeight * 2.5}px`;
+      } else {
+        lens.style.display = 'none';
+      }
+    });
+    
+    // Deactivate lens mode when mouse leaves the card
+    card.addEventListener('mouseleave', () => {
+      if (isLensActive) {
+        isLensActive = false;
+        zoomBtn.classList.remove('active');
+        card.classList.remove('lens-mode-active');
+        lens.style.display = 'none';
+      }
+    });
+    
+    function moveLens(e) {
+      if (!isLensActive) return;
+      
+      const rect = wrap.getBoundingClientRect();
+      
+      // Get cursor position relative to the image wrapper
+      let x, y;
+      if (e.touches) {
+        x = e.touches[0].clientX - rect.left;
+        y = e.touches[0].clientY - rect.top;
+      } else {
+        x = e.clientX - rect.left;
+        y = e.clientY - rect.top;
+      }
+      
+      // Prevent lens from going outside the boundaries
+      if (x < 0 || x > rect.width || y < 0 || y > rect.height) {
+        lens.style.display = 'none';
+        return;
+      }
+      
+      lens.style.display = 'block';
+      
+      // Position the lens (centered on cursor)
+      const lensWidth = lens.offsetWidth;
+      const lensHeight = lens.offsetHeight;
+      
+      const posX = x - (lensWidth / 2);
+      const posY = y - (lensHeight / 2);
+      
+      lens.style.left = `${posX}px`;
+      lens.style.top = `${posY}px`;
+      
+      // Calculate background position of zoomed image inside the lens
+      const bgX = (x * 2.5) - (lensWidth / 2);
+      const bgY = (y * 2.5) - (lensHeight / 2);
+      
+      lens.style.backgroundPosition = `-${bgX}px -${bgY}px`;
+    }
+    
+    wrap.addEventListener('mousemove', moveLens);
+    wrap.addEventListener('touchmove', moveLens, { passive: true });
+    wrap.addEventListener('touchstart', (e) => {
+      if (isLensActive) {
+        moveLens(e);
+      }
+    }, { passive: true });
+  });
 });
