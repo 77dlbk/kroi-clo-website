@@ -280,11 +280,15 @@ body.menu-open .header-logo-img {
   justify-content: center;
   align-items: center;
   transform: translateY(-100%);
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  visibility: hidden;
 }
 
 .mobile-menu-overlay.active {
   transform: translateY(0);
+  pointer-events: auto;
+  visibility: visible;
 }
 
 .mobile-nav-links {
@@ -479,37 +483,46 @@ body.site-loaded .hero-content {
 }
 
 @media (max-width: 768px) {
+  .hero {
+    height: 55vh;
+    min-height: 380px;
+  }
   .hero-overlay-text {
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    align-items: center;
-    text-align: center;
-    width: 85%;
-    max-width: 320px;
-    padding: 1.8rem 1.2rem;
-    background: rgba(255, 255, 255, 0.7);
+    top: 50%;
+    left: 8%;
+    align-items: flex-start;
+    text-align: left;
+    width: 80%;
+    max-width: 250px;
+    padding: 1.2rem 1rem;
+    background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 16px;
+    border-radius: 12px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
   }
+  .hero-overlay-text.scale-up {
+    transform: translateY(-50%) scale(0.95) translateY(15px) !important;
+  }
+  .hero-overlay-text.scale-up.active {
+    transform: translateY(-50%) scale(1) translateY(0) !important;
+  }
   .hero-overlay-text .hero-eyebrow {
-    text-align: center;
+    text-align: left;
     margin-bottom: 0.8rem;
   }
   .hero-logo-wrap {
     width: 100%;
-    max-width: 220px;
-    justify-content: center;
-    margin-top: 0.5rem;
+    max-width: 140px;
+    justify-content: flex-start;
+    margin-top: 0.3rem;
   }
   .hero-bottom-cta {
     bottom: 2.5rem;
   }
   .collage-3-img {
-    object-position: 80% center;
+    object-position: center center;
   }
 }
 
@@ -624,6 +637,9 @@ section {
 @media (max-width: 480px) {
   .section-title {
     font-size: 1.8rem;
+  }
+  .nav-phone {
+    display: none;
   }
 }
 
