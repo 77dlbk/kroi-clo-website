@@ -177,13 +177,19 @@ header {
   gap: 2rem;
 }
 
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+}
+
 .logo {
   display: flex;
   align-items: center;
 }
 
 .header-logo-img {
-  height: 28px;
+  height: 38px;
   width: auto;
   display: block;
   transition: var(--transition-smooth);
