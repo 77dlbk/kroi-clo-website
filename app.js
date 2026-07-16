@@ -151,18 +151,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // 5. Header Visual Scroll Styling
   const header = document.querySelector('header');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      header.style.backgroundColor = 'rgba(255, 255, 255, 0.85)';
+    if (window.scrollY > 30) {
+      header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
       header.style.backdropFilter = 'blur(10px)';
       header.style.webkitBackdropFilter = 'blur(10px)';
-      header.style.borderBottom = '1px solid rgba(0, 0, 0, 0.05)';
-      header.style.padding = '0.7rem 2rem';
+      header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.02)';
+      header.style.padding = '0.6rem 2rem';
     } else {
-      header.style.backgroundColor = 'transparent';
+      header.style.backgroundColor = '#ffffff';
       header.style.backdropFilter = 'none';
       header.style.webkitBackdropFilter = 'none';
-      header.style.borderBottom = 'none';
-      header.style.padding = '1rem 2rem';
+      header.style.boxShadow = 'none';
+      header.style.padding = '0.75rem 2rem';
     }
   });
 
@@ -435,67 +435,132 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalDesc = document.getElementById('modal-desc');
       const catalogMetaData = [
       { // Card 1
-        title: "Жакет и Сатиновая юбка",
+        title: "Укороченный жакет в клетку",
         category: "Костюмная группа / Жакеты",
-        fabrics: "Премиальная шерсть, натуральный шелк",
-        desc: "Элегантный укороченный жакет в клетку из тонкой шерсти, застегивающийся на три фактурные золотистые пуговицы. В комплекте со струящейся сатиновой юбкой создает изысканный женственный образ.",
+        fabrics: "Премиальная шерсть, шелк",
+        desc: "Эксклюзивный укороченный женский жакет в мелкую черно-белую клетку. Модель оригинального кроя с короткими свободными рукавами, приталенным силуэтом и акцентной крупной золотой пуговицей по центру. Отлично сочетается с юбками из фатина и вечерними образами.",
         images: [
-          "assets/details/catalog-3-1.jpg",
-          "assets/details/catalog-3-2.jpg",
-          "assets/details/catalog-3-3.jpg"
+          "assets/details/catalog-cropped-jacket-1.jpg",
+          "assets/details/catalog-cropped-jacket-2.jpg",
+          "assets/details/catalog-cropped-jacket-3.jpg",
+          "assets/details/catalog-cropped-jacket-4.jpg",
+          "assets/details/catalog-cropped-jacket-5.jpg"
         ]
       },
       { // Card 2
-        title: "Твидовый пиджак и брюки",
-        category: "Костюмная группа / Твид",
-        fabrics: "Премиум твид",
-        desc: "Элегантный комплект из классического пиджака и брюк. Благородная текстура твида, безупречные швы и современный крой, подчеркивающий силуэт.",
+        title: "Приталенное полупальто без воротника",
+        category: "Костюмная группа / Пальто",
+        fabrics: "Премиальная шерсть, кашемир",
+        desc: "Стильное женское полупальто приталенного силуэта без воротника. Выполнено из высококачественной шерсти и кашемира в ярко-красном цвете, дополнено фактурными золотистыми пуговицами и элегантным кроем. Идеальная посадка по фигуре.",
         images: [
-          "assets/details/catalog-9-1.jpg",
-          "assets/details/catalog-9-2.jpg",
-          "assets/details/catalog-9-3.jpg",
-          "assets/details/catalog-9-4.jpg"
+          "assets/details/catalog-red-coat-1.jpg",
+          "assets/details/catalog-red-coat-2.jpg",
+          "assets/details/catalog-red-coat-3.jpg",
+          "assets/details/catalog-red-coat-4.jpg"
         ]
       },
       { // Card 3
-        title: "Костюм с отделкой мехом",
-        category: "Костюмная группа / Люкс",
-        fabrics: "Шерсть, натуральный мех",
-        desc: "Эксклюзивный костюм приталенного силуэта с меховой отделкой. Идеальный крой, ручная обработка деталей и благородные ткани.",
+        title: "Костюм с приталенным жакетом в клетку",
+        category: "Костюмная группа / Жакеты",
+        fabrics: "Премиальная шерсть, вискоза",
+        desc: "Элегантный женский костюм из плотной ткани в клетку. В комплекте приталенный двубортный жакет на оригинальной пуговице и широкие классические брюки палаццо. Безупречный крой подчеркивает талию и визуально удлиняет силуэт.",
         images: [
-          "assets/details/catalog-6-1.jpg",
-          "assets/details/catalog-6-2.jpg",
-          "assets/details/catalog-6-3.jpg"
+          "assets/details/catalog-plaid-suit-1.jpg",
+          "assets/details/catalog-plaid-suit-2.jpg",
+          "assets/details/catalog-plaid-suit-3.jpg",
+          "assets/details/catalog-plaid-suit-4.jpg",
+          "assets/details/catalog-plaid-suit-5.jpg"
         ]
       },
       { // Card 4
-        title: "Твидовый костюм в клетку",
+        title: "Костюм с мини-юбкой в ёлочку",
         category: "Костюмная группа / Жакеты",
-        fabrics: "Премиальная шерсть, вискоза, шелк",
-        desc: "Стильный классический женский костюм-двойка из плотной клетчатой ткани. Приталенный жакет с изысканной золотистой фурнитурой и прямые классические брюки со стрелками. Идеальный крой и безупречная обработка швов.",
+        fabrics: "Премиальная шерсть, шеврон",
+        desc: "Стильный и утонченный костюм-двойка в классическую серую ёлочку (шеврон). Включает в себя оригинальный жакет с рукавами 3/4, отложным белым воротничком и акцентными золотыми пуговицами, а также элегантную мини-юбку. Идеально садится по фигуре.",
         images: [
-          "assets/details/catalog-2-1.jpg",
-          "assets/details/catalog-2-2.jpg"
+          "assets/details/catalog-herringbone-suit-1.jpg",
+          "assets/details/catalog-herringbone-suit-2.jpg",
+          "assets/details/catalog-herringbone-suit-3.jpg",
+          "assets/details/catalog-herringbone-suit-4.jpg",
+          "assets/details/catalog-herringbone-suit-5.jpg"
         ]
       },
       { // Card 5
-        title: "Анималистичный жакет",
-        category: "Костюмная группа",
-        fabrics: "Жаккард, вискоза",
-        desc: "Жакет с выразительным леопардовым принтом. Прорезные карманы, идеальная посадка по фигуре и премиальная фурнитура.",
+        title: "Полупальто с накладными карманами",
+        category: "Костюмная группа / Пальто",
+        fabrics: "Премиальная шерсть, шеврон",
+        desc: "Современное женское полупальто свободного силуэта в мелкую серую елочку. Модель оснащена стильным отложным воротником, крупными накладными карманами, контрастными темными пуговицами и аккуратными прямыми рукавами. Отлично дополняется аксессуарами в виде черных кожаных перчаток и элегантных головных уборов.",
         images: [
-          "assets/details/catalog-7-1.jpg",
-          "assets/details/catalog-7-2.jpg"
+          "assets/details/catalog-pocket-coat-1.jpg",
+          "assets/details/catalog-pocket-coat-2.jpg",
+          "assets/details/catalog-pocket-coat-3.jpg",
+          "assets/details/catalog-pocket-coat-4.jpg",
+          "assets/details/catalog-pocket-coat-5.jpg"
         ]
       },
       { // Card 6
-        title: "Костюм из серого шеврона",
-        category: "Костюмная группа",
-        fabrics: "Шерстяной шеврон, шелковая подкладка",
-        desc: "Премиальный женский костюм из твида с шевроновым плетением. Идеальный крой, обеспечивающий строгий деловой силуэт, в сочетании с мягкостью натуральной ткани.",
+        title: "Костюм с жакетом на защипах",
+        category: "Костюмная группа / Жакеты",
+        fabrics: "Премиальная шерсть, вискоза",
+        desc: "Изысканный женский костюм-двойка глубокого бежево-коричневого оттенка. Однобортный приталенный жакет с воротником-стойкой дополнен элегантным откосом, изящными защипами на талии спереди и сзади, а также золотистыми пуговицами. Прямые брюки-клеш с идеальной посадкой подчеркивают длину ног.",
         images: [
-          "assets/details/catalog-5-1.jpg",
-          "assets/details/catalog-5-2.jpg"
+          "assets/details/catalog-pintuck-suit-1.jpg",
+          "assets/details/catalog-pintuck-suit-2.jpg",
+          "assets/details/catalog-pintuck-suit-3.jpg",
+          "assets/details/catalog-pintuck-suit-4.jpg",
+          "assets/details/catalog-pintuck-suit-5.jpg"
+        ]
+      },
+      { // Card 7
+        title: "Костюм с жилетом на защипах",
+        category: "Костюмная группа / Жилеты",
+        fabrics: "Премиальная шерсть, вискоза",
+        desc: "Элегантный женский костюм-тройка с приталенным жилетом. Жилет выполнен на оригинальных пуговицах с защипами на талии спереди и сзади, подчеркивая женственный силуэт. Комплект дополнен прямыми классическими брюками в тон, создавая утонченный и строгий образ.",
+        images: [
+          "assets/details/catalog-pintuck-vest-suit-1.jpg",
+          "assets/details/catalog-pintuck-vest-suit-2.jpg",
+          "assets/details/catalog-pintuck-vest-suit-3.jpg",
+          "assets/details/catalog-pintuck-vest-suit-4.jpg",
+          "assets/details/catalog-pintuck-vest-suit-5.jpg"
+        ]
+      },
+      { // Card 8
+        title: "Двубортное полупальто с английским воротником",
+        category: "Костюмная группа / Пальто",
+        fabrics: "Премиальная шерсть, кашемир",
+        desc: "Классическое двубортное женское полупальто в благородном коричневом оттенке. Модель выполнена со стильным английским воротником, широкими прямыми рукавами с патами на пуговицах и прорезными карманами. Отлично сочетается с шелковыми нашейными платками и деловыми костюмами.",
+        images: [
+          "assets/details/catalog-double-coat-1.jpg",
+          "assets/details/catalog-double-coat-2.jpg",
+          "assets/details/catalog-double-coat-3.jpg",
+          "assets/details/catalog-double-coat-4.jpg",
+          "assets/details/catalog-double-coat-5.jpg"
+        ]
+      },
+      { // Card 9
+        title: "Жакет с леопардовым принтом",
+        category: "Костюмная группа / Жакеты",
+        fabrics: "Премиальный хлопковый жаккард",
+        desc: "Элегантный женский жакет приталенного кроя с выразительным анималистичным леопардовым принтом. Модель без воротника с круглым вырезом, дополненная оригинальными крупными золотыми пуговицами по центру. Превосходно смотрится как с классическими черными брюками, так и с вечерними образами.",
+        images: [
+          "assets/details/catalog-leopard-jacket-new-1.jpg",
+          "assets/details/catalog-leopard-jacket-new-2.jpg",
+          "assets/details/catalog-leopard-jacket-new-3.jpg",
+          "assets/details/catalog-leopard-jacket-new-4.jpg",
+          "assets/details/catalog-leopard-jacket-new-5.jpg"
+        ]
+      },
+      { // Card 10
+        title: "Полупальто с архитектурной застежкой",
+        category: "Костюмная группа / Пальто",
+        fabrics: "Премиальная шерсть",
+        desc: "Современное и лаконичное женское полупальто свободного силуэта в меланжевом сером оттенке. Модель отличается оригинальной архитектурной застежкой на одну крупную пуговицу у воротника-стойки, рукавами реглан и лаконичным кроем. Идеально дополняет как деловые образы с широкими брюками, так и повседневные городские комплекты.",
+        images: [
+          "assets/details/catalog-asymmetric-coat-1.jpg",
+          "assets/details/catalog-asymmetric-coat-2.jpg",
+          "assets/details/catalog-asymmetric-coat-3.jpg",
+          "assets/details/catalog-asymmetric-coat-4.jpg",
+          "assets/details/catalog-asymmetric-coat-5.jpg"
         ]
       }
     ];

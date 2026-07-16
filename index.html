@@ -35,21 +35,34 @@
   <!-- Header Navigation -->
   <header>
     <div class="nav-container">
-      <a href="#" class="logo" id="header-logo">
-        <img src="assets/logo.png" alt="Kroi Clo Logo" class="header-logo-img">
-      </a>
+      <div class="nav-left">
+        <a href="#" class="logo" id="header-logo">
+          <img src="assets/logo.png" alt="Kroi Clo Logo" class="header-logo-img">
+        </a>
+        
+        <ul class="nav-links">
+          <li><a href="#about">О фабрике</a></li>
+          <li><a href="#catalog">Каталог</a></li>
+          <li><a href="#products">Направления</a></li>
+          <li><a href="#process">Этапы</a></li>
+          <li><a href="#contact">Контакты</a></li>
+        </ul>
+      </div>
       
-      <ul class="nav-links">
-        <li><a href="#about">О фабрике</a></li>
-        <li><a href="#catalog">Каталог</a></li>
-        <li><a href="#products">Направления</a></li>
-        <li><a href="#process">Этапы</a></li>
-        <li><a href="#gallery">Галерея</a></li>
-        <li><a href="#contact">Контакты</a></li>
-      </ul>
-      
-      <div class="nav-cta">
-        <a href="tel:+996552906101" class="nav-phone">+996 552 906 101</a>
+      <div class="nav-right">
+        <!-- Search Bar -->
+        <div class="header-search">
+          <span class="header-search-icon">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </span>
+          <input type="text" class="header-search-input" placeholder="Поиск...">
+        </div>
+        
+
+        
         <button class="burger-menu" aria-label="Открыть меню" id="burger-btn">
           <span class="burger-line"></span>
           <span class="burger-line"></span>
@@ -65,7 +78,6 @@
       <li><a href="#catalog" onclick="toggleMenu()">Каталог</a></li>
       <li><a href="#products" onclick="toggleMenu()">Направления</a></li>
       <li><a href="#process" onclick="toggleMenu()">Этапы</a></li>
-      <li><a href="#gallery" onclick="toggleMenu()">Галерея</a></li>
       <li><a href="#contact" onclick="toggleMenu()">Контакты</a></li>
     </ul>
     <div class="mobile-menu-footer">
@@ -74,28 +86,43 @@
     </div>
   </div>
 
+
+
   <main>
     
-    <!-- Hero Section with Central Magazine Photo -->
+    <!-- Hero Section with ALAYA Card Layout -->
     <section class="hero" id="hero">
-      <!-- Floating Title Overlay -->
-      <div class="hero-overlay-text scale-up reveal-delay-2">
-        <div class="hero-logo-wrap">
-          <img src="assets/logo.png" alt="Kroi Clo" class="hero-logo-img">
-        </div>
-      </div>
-
-      <!-- Lichi-style Bottom CTA Overlay -->
-      <div class="hero-bottom-cta reveal reveal-delay-3">
-        <span class="hero-cta-title">НОВИНКИ</span>
-        <a href="#catalog" class="hero-cta-link">СМОТРЕТЬ</a>
-      </div>
-
       <div class="hero-content">
-        <!-- Editorial Collage Layout (Center Photo Only) -->
-        <div class="hero-collage-3 scale-up reveal-delay-1">
-          <div class="collage-3-item collage-3-center">
-            <img src="assets/collage-center.png" alt="Модель Kroi Clo" class="collage-3-img" loading="eager">
+        <div class="hero-card">
+          <!-- Left side content -->
+          <div class="hero-card-left">
+            <div class="hero-logo-wrap">
+              <img src="assets/logo.png" alt="Kroi Clo Logo" class="hero-logo-img">
+            </div>
+            
+            <h1 class="hero-card-title">Kroi Clo – где качество становится стандартом</h1>
+            
+            <p class="hero-card-desc">
+              Современное швейное производство полного цикла. Разрабатываем точные лекала, отшиваем партии любого объема и гарантируем безупречное качество пошива женской одежды для ведущих брендов и маркетплейсов.
+            </p>
+            
+            <div class="hero-card-actions">
+              <a href="#contact" class="btn-write">
+                Написать
+                <span class="arrow-circle">
+                  <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="3">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Right side visual -->
+          <div class="hero-card-right">
+            <div class="watermark-bg">KROI CLO</div>
+            <img src="assets/hero-sitting-model.jpg" alt="Модели Kroi Clo" class="hero-card-img" loading="eager">
           </div>
         </div>
       </div>
@@ -192,19 +219,19 @@
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                   </svg>
                 </button>
-                <img src="assets/catalog-3.jpg" alt="Укороченный жакет и сатиновая юбка" class="catalog-card-img" loading="lazy">
+                <img src="assets/catalog-cropped-jacket.jpg" alt="Укороченный жакет в клетку" class="catalog-card-img" loading="lazy">
               </div>
               <div class="catalog-card-info">
                 <div>
                   <div class="catalog-card-meta">
-                    <span class="catalog-card-num">Коллаборация №01</span>
-                    <span class="catalog-card-tag">Шерсть & Сатин</span>
+                    <span class="catalog-card-num">№01</span>
+                    <span class="catalog-card-tag">Шерсть & Шелк</span>
                   </div>
-                  <h3 class="catalog-card-title">Жакет и Сатиновая юбка</h3>
+                  <h3 class="catalog-card-title">Укороченный жакет в клетку</h3>
                 </div>
                 <div class="catalog-card-footer">
                   <span class="catalog-card-spec">Минимум: 200 ед.</span>
-                  <div class="catalog-card-order-btn" data-product="Жакет и Сатиновая юбка">Запросить пошив</div>
+                  <div class="catalog-card-order-btn" data-product="Укороченный жакет в клетку">Запросить пошив</div>
                 </div>
               </div>
             </div>
@@ -218,19 +245,19 @@
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                   </svg>
                 </button>
-                <img src="assets/catalog-10.jpg" alt="Твидовый костюм тройка" class="catalog-card-img" loading="lazy">
+                <img src="assets/catalog-red-coat.jpg" alt="Приталенное полупальто без воротника" class="catalog-card-img" loading="lazy">
               </div>
               <div class="catalog-card-info">
                 <div>
                   <div class="catalog-card-meta">
-                    <span class="catalog-card-num">Коллаборация №02</span>
-                    <span class="catalog-card-tag">Премиум Твид</span>
+                    <span class="catalog-card-num">№02</span>
+                    <span class="catalog-card-tag">Шерсть & Кашемир</span>
                   </div>
-                  <h3 class="catalog-card-title">Твидовый пиджак и брюки</h3>
+                  <h3 class="catalog-card-title">Приталенное полупальто без воротника</h3>
                 </div>
                 <div class="catalog-card-footer">
                   <span class="catalog-card-spec">Минимум: 200 ед.</span>
-                  <div class="catalog-card-order-btn" data-product="Твидовый пиджак и брюки">Запросить пошив</div>
+                  <div class="catalog-card-order-btn" data-product="Приталенное полупальто без воротника">Запросить пошив</div>
                 </div>
               </div>
             </div>
@@ -244,23 +271,23 @@
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                   </svg>
                 </button>
-                <img src="assets/catalog-6.jpg" alt="Костюм с меховой отделкой" class="catalog-card-img" loading="lazy">
+                <img src="assets/catalog-plaid-suit.jpg" alt="Костюм с приталенным жакетом в клетку" class="catalog-card-img" loading="lazy">
               </div>
               <div class="catalog-card-info">
                 <div>
                   <div class="catalog-card-meta">
-                    <span class="catalog-card-num">Коллаборация №03</span>
-                    <span class="catalog-card-tag">Классика / Мех</span>
+                    <span class="catalog-card-num">№03</span>
+                    <span class="catalog-card-tag">Шерстяная клетка</span>
                   </div>
-                  <h3 class="catalog-card-title">Костюм с отделкой мехом</h3>
+                  <h3 class="catalog-card-title">Костюм с приталенным жакетом в клетку</h3>
                 </div>
                 <div class="catalog-card-footer">
                   <span class="catalog-card-spec">Минимум: 200 ед.</span>
-                  <div class="catalog-card-order-btn" data-product="Костюм с отделкой мехом">Запросить пошив</div>
+                  <div class="catalog-card-order-btn" data-product="Костюм с приталенным жакетом в клетку">Запросить пошив</div>
                 </div>
               </div>
             </div>
-
+            
             <!-- Card 4 -->
             <div class="catalog-card">
               <div class="catalog-card-img-wrap">
@@ -270,19 +297,19 @@
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                   </svg>
                 </button>
-                <img src="assets/catalog-2.jpg" alt="Твидовый деловой костюм в клетку" class="catalog-card-img" loading="lazy">
+                <img src="assets/catalog-herringbone-suit.jpg" alt="Костюм с мини-юбкой в ёлочку" class="catalog-card-img" loading="lazy">
               </div>
               <div class="catalog-card-info">
                 <div>
                   <div class="catalog-card-meta">
-                    <span class="catalog-card-num">Коллаборация №04</span>
-                    <span class="catalog-card-tag">Премиум Твид</span>
+                    <span class="catalog-card-num">№04</span>
+                    <span class="catalog-card-tag">Шерстяной шеврон</span>
                   </div>
-                  <h3 class="catalog-card-title">Твидовый костюм в клетку</h3>
+                  <h3 class="catalog-card-title">Костюм с мини-юбкой в ёлочку</h3>
                 </div>
                 <div class="catalog-card-footer">
                   <span class="catalog-card-spec">Минимум: 200 ед.</span>
-                  <div class="catalog-card-order-btn" data-product="Твидовый костюм в клетку">Запросить пошив</div>
+                  <div class="catalog-card-order-btn" data-product="Костюм с мини-юбкой в ёлочку">Запросить пошив</div>
                 </div>
               </div>
             </div>
@@ -296,19 +323,19 @@
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                   </svg>
                 </button>
-                <img src="assets/catalog-8.jpg" alt="Жакет леопардовый" class="catalog-card-img" loading="lazy">
+                <img src="assets/catalog-pocket-coat.jpg" alt="Полупальто с накладными карманами" class="catalog-card-img" loading="lazy">
               </div>
               <div class="catalog-card-info">
                 <div>
                   <div class="catalog-card-meta">
-                    <span class="catalog-card-num">Коллаборация №05</span>
-                    <span class="catalog-card-tag">Эксклюзив</span>
+                    <span class="catalog-card-num">№05</span>
+                    <span class="catalog-card-tag">Шерсть & Шеврон</span>
                   </div>
-                  <h3 class="catalog-card-title">Анималистичный жакет</h3>
+                  <h3 class="catalog-card-title">Полупальто с накладными карманами</h3>
                 </div>
                 <div class="catalog-card-footer">
                   <span class="catalog-card-spec">Минимум: 200 ед.</span>
-                  <div class="catalog-card-order-btn" data-product="Анималистичный жакет">Запросить пошив</div>
+                  <div class="catalog-card-order-btn" data-product="Полупальто с накладными карманами">Запросить пошив</div>
                 </div>
               </div>
             </div>
@@ -322,19 +349,123 @@
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                   </svg>
                 </button>
-                <img src="assets/catalog-5.jpg" alt="Твидовый костюм с мини-юбкой" class="catalog-card-img" loading="lazy">
+                <img src="assets/catalog-pintuck-suit.jpg" alt="Костюм с жакетом на защипах" class="catalog-card-img" loading="lazy">
               </div>
               <div class="catalog-card-info">
                 <div>
                   <div class="catalog-card-meta">
-                    <span class="catalog-card-num">Коллаборация №06</span>
-                    <span class="catalog-card-tag">Премиум Твид</span>
+                    <span class="catalog-card-num">№06</span>
+                    <span class="catalog-card-tag">Премиум Шерсть</span>
                   </div>
-                  <h3 class="catalog-card-title">Костюм из серого шеврона</h3>
+                  <h3 class="catalog-card-title">Костюм с жакетом на защипах</h3>
                 </div>
                 <div class="catalog-card-footer">
                   <span class="catalog-card-spec">Минимум: 200 ед.</span>
-                  <div class="catalog-card-order-btn" data-product="Костюм из серого шеврона">Запросить пошив</div>
+                  <div class="catalog-card-order-btn" data-product="Костюм с жакетом на защипах">Запросить пошив</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="catalog-card">
+              <div class="catalog-card-img-wrap">
+                <button class="card-zoom-btn" aria-label="Лупа">
+                  <svg class="zoom-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                </button>
+                <img src="assets/catalog-pintuck-vest-suit.jpg" alt="Костюм с жилетом на защипах" class="catalog-card-img" loading="lazy">
+              </div>
+              <div class="catalog-card-info">
+                <div>
+                  <div class="catalog-card-meta">
+                    <span class="catalog-card-num">№07</span>
+                    <span class="catalog-card-tag">Шерсть & Вискоза</span>
+                  </div>
+                  <h3 class="catalog-card-title">Костюм с жилетом на защипах</h3>
+                </div>
+                <div class="catalog-card-footer">
+                  <span class="catalog-card-spec">Минимум: 200 ед.</span>
+                  <div class="catalog-card-order-btn" data-product="Костюм с жилетом на защипах">Запросить пошив</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="catalog-card">
+              <div class="catalog-card-img-wrap">
+                <button class="card-zoom-btn" aria-label="Лупа">
+                  <svg class="zoom-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                </button>
+                <img src="assets/catalog-double-coat.jpg" alt="Двубортное полупальто с английским воротником" class="catalog-card-img" loading="lazy">
+              </div>
+              <div class="catalog-card-info">
+                <div>
+                  <div class="catalog-card-meta">
+                    <span class="catalog-card-num">№08</span>
+                    <span class="catalog-card-tag">Премиум Шерсть</span>
+                  </div>
+                  <h3 class="catalog-card-title">Двубортное полупальто с английским воротником</h3>
+                </div>
+                <div class="catalog-card-footer">
+                  <span class="catalog-card-spec">Минимум: 200 ед.</span>
+                  <div class="catalog-card-order-btn" data-product="Двубортное полупальто с английским воротником">Запросить пошив</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="catalog-card">
+              <div class="catalog-card-img-wrap">
+                <button class="card-zoom-btn" aria-label="Лупа">
+                  <svg class="zoom-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                </button>
+                <img src="assets/catalog-leopard-jacket-new.jpg" alt="Жакет с леопардовым принтом" class="catalog-card-img" loading="lazy">
+              </div>
+              <div class="catalog-card-info">
+                <div>
+                  <div class="catalog-card-meta">
+                    <span class="catalog-card-num">№09</span>
+                    <span class="catalog-card-tag">Эксклюзив</span>
+                  </div>
+                  <h3 class="catalog-card-title">Жакет с леопардовым принтом</h3>
+                </div>
+                <div class="catalog-card-footer">
+                  <span class="catalog-card-spec">Минимум: 200 ед.</span>
+                  <div class="catalog-card-order-btn" data-product="Жакет с леопардовым принтом">Запросить пошив</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 10 -->
+            <div class="catalog-card">
+              <div class="catalog-card-img-wrap">
+                <button class="card-zoom-btn" aria-label="Лупа">
+                  <svg class="zoom-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                </button>
+                <img src="assets/catalog-asymmetric-coat.jpg" alt="Полупальто с архитектурной застежкой" class="catalog-card-img" loading="lazy">
+              </div>
+              <div class="catalog-card-info">
+                <div>
+                  <div class="catalog-card-meta">
+                    <span class="catalog-card-num">№10</span>
+                    <span class="catalog-card-tag">Премиум Шерсть</span>
+                  </div>
+                  <h3 class="catalog-card-title">Полупальто с архитектурной застежкой</h3>
+                </div>
+                <div class="catalog-card-footer">
+                  <span class="catalog-card-spec">Минимум: 200 ед.</span>
+                  <div class="catalog-card-order-btn" data-product="Полупальто с архитектурной застежкой">Запросить пошив</div>
                 </div>
               </div>
             </div>
@@ -352,12 +483,13 @@
           <div class="catalog-carousel-dots" id="catalog-dots"></div>
         </div>
       </div>
+    </section>
 
     <!-- Products / Directions Section (monochromatic interactive table) -->
     <section class="products" id="products">
       <div class="container">
         <div class="section-header reveal">
-          <h2 class="section-title" style="color: var(--color-white)">Наш ассортимент и специализация</h2>
+          <h2 class="section-title" style="color: var(--color-white)">Специализация</h2>
         </div>
         
         <div class="products-list reveal">
@@ -384,39 +516,29 @@
     <section class="process" id="process">
       <div class="container">
         <div class="section-header reveal">
-          <h2 class="section-title">Технологический процесс</h2>
+          <h2 class="section-title">Этапы работы производства</h2>
         </div>
         
         <div class="process-grid">
           
           <div class="process-card reveal">
-            
-            <h4 class="process-card-title">Лекала и дизайн</h4>
-            <p class="process-card-text">Разрабатываем точные лекала по вашим эскизам, фотографиям или готовому образцу.</p>
+            <h4 class="process-card-title">Разработка образца</h4>
+            <p class="process-card-text">Разрабатываем лекала по техническому заданию, эскизу, фотографии или готовому образцу. Отшиваем тестовый образец для проверки конструкции, технологии обработки и посадки изделия.</p>
           </div>
           
           <div class="process-card reveal reveal-delay-1">
-            
-            <h4 class="process-card-title">Тестовый образец</h4>
-            <p class="process-card-text">Отшиваем первый образец для утверждения посадки.</p>
+            <h4 class="process-card-title">Запуск партии</h4>
+            <p class="process-card-text">После утверждения образца проводим закуп и проверку сырья, выполняем раскрой, пошив, влажно-тепловую обработку (ВТО) и запускаем изделие в серийное производство.</p>
           </div>
           
           <div class="process-card reveal reveal-delay-2">
-            
-            <h4 class="process-card-title">Раскрой и пошив</h4>
-            <p class="process-card-text">После утверждения образца запускаем всю партию в производство.</p>
+            <h4 class="process-card-title">Контроль качества</h4>
+            <p class="process-card-text">Каждое изделие проходит многоэтапный контроль качества на соответствие технологии, размерам и отсутствию производственного брака.</p>
           </div>
           
           <div class="process-card reveal reveal-delay-3">
-            
-            <h4 class="process-card-title">Контроль качества</h4>
-            <p class="process-card-text">Отдел технического контроля (ОТК) осуществляет трехуровневую проверку каждого изделия на брак.</p>
-          </div>
-          
-          <div class="process-card reveal reveal-delay-4">
-            
-            <h4 class="process-card-title">Упаковка и отправка</h4>
-            <p class="process-card-text">Бережно утюжим, маркируем, упаковываем каждое изделие и оперативно отправляем по СНГ.</p>
+            <h4 class="process-card-title">Упаковка и маркировка</h4>
+            <p class="process-card-text">После финальной проверки ОТК изделия проходят окончательную ВТО, маркировку, упаковку и подготавливаются к отгрузке.</p>
           </div>
           
         </div>
@@ -433,19 +555,16 @@
         <div class="advantages-grid">
           
           <div class="advantage-card reveal">
-            <div class="advantage-icon">📐</div>
             <h4 class="advantage-title">Отличная посадка</h4>
             <p class="advantage-text">Создаем трендовые модели и гарантируем отличную посадку на любую фигуру благодаря профессиональной разработке лекал.</p>
           </div>
           
           <div class="advantage-card reveal reveal-delay-1">
-            <div class="advantage-icon">✓</div>
             <h4 class="advantage-title">Трехэтапный контроль</h4>
             <p class="advantage-text">Отдел ОТК проверяет детали кроя, промежуточные узлы в процессе пошива и проводит финальный осмотр готового изделия перед упаковкой.</p>
           </div>
           
           <div class="advantage-card reveal reveal-delay-2">
-            <div class="advantage-icon">✈</div>
             <h4 class="advantage-title">Поставка под ключ</h4>
             <p class="advantage-text">От разработки лекал и закупки качественного сырья до доставки готового груза в Москву, Алматы или Минск без посредников.</p>
           </div>
@@ -454,35 +573,48 @@
       </div>
     </section>
 
-    <!-- Gallery Section showing factory imagery -->
-    <section class="gallery" id="gallery">
+    <!-- Our Models Section -->
+    <section class="models-showcase" id="models">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Кадры с нашего производства</h2>
+        <div class="section-header reveal">
+          <h2 class="section-title">Наши модели</h2>
         </div>
         
-        <div class="gallery-grid">
-          
-          <div class="gallery-item gallery-item-1">
-            <img src="assets/gallery-1.jpg" alt="Процесс шитья" loading="lazy">
+        <div class="models-grid">
+          <div class="model-item reveal">
+            <div class="model-img-wrap">
+              <img src="assets/model-1.jpg" alt="Жакет с леопардовым принтом" loading="lazy">
+            </div>
+            <div class="model-name">Жакет с леопардовым принтом</div>
           </div>
           
-          <div class="gallery-item gallery-item-2">
-            <img src="assets/gallery-2.jpg" alt="Швея за работой" loading="lazy">
+          <div class="model-item reveal reveal-delay-1">
+            <div class="model-img-wrap">
+              <img src="assets/model-2.jpg" alt="Жакет в ёлочку" loading="lazy">
+            </div>
+            <div class="model-name">Жакет в ёлочку</div>
           </div>
           
-          <div class="gallery-item gallery-item-3">
-            <img src="assets/gallery-3.jpg" alt="Готовые пальто на вешалках" loading="lazy">
+          <div class="model-item reveal reveal-delay-2">
+            <div class="model-img-wrap">
+              <img src="assets/model-3.jpg" alt="Двубортное полупальто" loading="lazy">
+            </div>
+            <div class="model-name">Двубортное полупальто</div>
           </div>
           
-          <div class="gallery-item gallery-item-4">
-            <img src="assets/gallery-4.jpg" alt="Детали швейной машинки" loading="lazy">
+          <div class="model-item reveal">
+            <div class="model-img-wrap">
+              <img src="assets/model-4.jpg" alt="Приталенное полупальто" loading="lazy">
+            </div>
+            <div class="model-name">Приталенное полупальто</div>
           </div>
           
-          <div class="gallery-item gallery-item-5">
-            <img src="assets/gallery-5.jpg" alt="Ткани на производстве" loading="lazy">
+          <div class="model-item reveal reveal-delay-1">
+            <div class="model-img-wrap">
+              <img src="assets/model-5.jpg" alt="Двубортное полупальто (детали)" loading="lazy">
+            </div>
+            <div class="model-name">Двубортное полупальто (детали)</div>
           </div>
-          
         </div>
       </div>
     </section>
@@ -493,7 +625,7 @@
         <div class="contacts-grid">
           
           <div class="contacts-info reveal">
-            <h2 class="section-title" style="color: var(--color-white); margin-bottom: 2rem;">Обсудим ваш проект?</h2>
+            <h2 class="section-title" style="margin-bottom: 2rem;">Обсудим ваш проект?</h2>
             <p class="contacts-text">
               Оставьте контакты и вкратце опишите вашу задачу. Наш технолог свяжется с вами, проконсультирует по выбору материалов и рассчитает предварительную стоимость пошива.
             </p>
@@ -543,15 +675,15 @@
             <!-- QR Codes Row matching the card image -->
             <div class="contact-qr-codes">
               <div class="qr-item">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://t.me/kroi_clo&color=000000&bgcolor=ffffff" alt="Telegram QR" class="qr-img">
-                <span class="qr-label">Telegram</span>
+                <img src="assets/qr-instagram.png" alt="Instagram QR" class="qr-img">
+                <span class="qr-label">Instagram</span>
               </div>
               <div class="qr-item">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://kroiclo.com&color=000000&bgcolor=ffffff" alt="Website QR" class="qr-img">
-                <span class="qr-label">Website</span>
+                <img src="assets/qr-telegram.png" alt="Telegram QR" class="qr-img">
+                <span class="qr-label">Telegramm</span>
               </div>
               <div class="qr-item">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://wa.me/996552906101&color=000000&bgcolor=ffffff" alt="WhatsApp QR" class="qr-img">
+                <img src="assets/qr-whatsapp.png" alt="WhatsApp QR" class="qr-img">
                 <span class="qr-label">WhatsApp</span>
               </div>
             </div>
